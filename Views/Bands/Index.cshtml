@@ -10,51 +10,28 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<ul>
-    @foreach (var item in Model)
-    {
-        <li>
-            <img src="@Html.DisplayFor(modelItem => item.Image)" alt=""/>
-            <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
-        </li>
-    }
-</ul>
-
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Debiut)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.End)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th></th>
-    </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            <img src="@Html.DisplayFor(modelItem => item.Image)" alt="" style="border-radius: 6px; height: 10em;" />
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Debiut)
+            <h2>@Html.DisplayFor(modelItem => item.Name)</h2>            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.End)
+            <h3>
+            Debiut: @Html.DisplayFor(modelItem => item.Debiut)<br/>
+            
+            @if (!Html.DisplayFor(modelItem => item.End).ToString().Equals("0"))
+            {
+                @:Koniec kariery: @Html.DisplayFor(modelItem => item.End)
+            }
+            </h3>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            <a href="http://asp.net" class="btn btn-primary btn-lg">Zobacz &raquo;</a>
         </td>
     </tr>
 }
