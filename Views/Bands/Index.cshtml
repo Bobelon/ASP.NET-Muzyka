@@ -1,14 +1,25 @@
 ﻿@model IEnumerable<MvcMusic.Models.Band>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Zespoły";
 }
 
-<h2>Index</h2>
+<h2>Zespoły</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <img src="@Html.DisplayFor(modelItem => item.Image)" alt=""/>
+            <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+        </li>
+    }
+</ul>
+
 <table class="table">
     <tr>
         <th>
