@@ -17,7 +17,11 @@ namespace MvcMusic.Controllers
         // GET: Bands
         public ActionResult Index()
         {
-            return View(db.Bands.ToList());
+            var bands = db.Bands.Select(n => n)
+                .OrderBy(n => n.Name)
+                .ToList();
+            //return View(db.Bands.ToList());
+            return View(bands);
         }
 
         // GET: Bands/Details/5
