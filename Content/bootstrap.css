@@ -365,6 +365,11 @@ img {
   border-radius: 6px;
 }
 
+.img-rounded2 {
+    border-radius: 6px;
+    max-width: 40%;
+}
+
 .img-thumbnail {
   display: inline-block;
   height: auto;
