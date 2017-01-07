@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -15,5 +16,9 @@ namespace MvcMusic.Models
         public List<Artist> ExArtists { get; set; }
         public string Image { get; set; }
         public List<string> Songs { get; set; }
+    }
+    public class BandDbContext : DbContext
+    {
+        public DbSet<Band> Bands { get; set; }
     }
 }
