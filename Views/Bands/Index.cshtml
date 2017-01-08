@@ -31,10 +31,11 @@
             }
             </h3>
         </td>
-        <td>
-            <a href="http://asp.net" class="btn btn-primary btn-lg">Zobacz &raquo;</a> <br/><br/>
+        <td>            
+            @Html.ActionLink("Zobacz »", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-lg" }) <br /><br/>
             @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }) <br/>
             @Html.ActionLink("Usuń", "Delete", new { id = item.ID })
+            
         </td>
     </tr>
 }
