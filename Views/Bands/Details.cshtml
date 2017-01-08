@@ -1,14 +1,33 @@
 ﻿@model MvcMusic.Models.Band
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = @Html.DisplayFor(model => model.Name);
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
 
 <div>
-    <h4>Band</h4>
     <hr />
+    <table style="border: solid 1px black; width: 100%;">
+        <tr>
+            <td>
+                <img src=@Html.DisplayFor(model => model.Image) alt="Zdjęcie @Html.DisplayFor(model => model.Name)" style="border-radius: 6px; width: 100%;" />
+            </td>
+            <td style="padding-left: 10%; width: 40%;">
+                <h1>@Html.DisplayFor(model => model.Name)</h1><br/>
+                <h4>@Html.DisplayNameFor(model => model.Debiut): @Html.DisplayFor(model => model.Debiut)
+                <br/>
+                @if(Html.DisplayFor(model => model.End).ToString() != "0")
+                {
+                  @Html.DisplayNameFor(model => model.End)@: : @Html.DisplayFor(model => model.End)
+                }
+                </h4>
+
+            </td>
+        </tr>
+        
+    </table>
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -45,6 +64,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Powrót", "Index")
 </p>
