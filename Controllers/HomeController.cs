@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcMusic.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,20 @@ namespace MvcMusic.Controllers
 {
     public class HomeController : Controller
     {
+        private BandDbContext dbBand = new BandDbContext();
+
+        
         public ActionResult Index()
         {
-            ViewBag.NewBandImg = "http://www.sbs.com.au/popasia/sites/sbs.com.au.popasia/files/black-pink.jpg";
-            ViewBag.NewBandHeader = "Black Pink";
-            ViewBag.NewBandType = "Girlsband";
-            ViewBag.NewBandDate = "08.08.2016";
-            ViewBag.NewBandSex = ViewBag.NewBandType == "Girlsband" ? "członkiń" : "członków";
-            ViewBag.NewBandMembers = "4";
+            Band newBand = dbBand.Bands.OrderByDescending(x => x.ID).First();
+            
+            ViewBag.NewBandImg = newBand.Image;
+            ViewBag.NewBandName = newBand.Name;
+            ViewBag.NewBandDebiut = newBand.Debiut;
+            ViewBag.NewBandEnd = newBand.End;
+            
+            if(newBand.ActualArtists == null) 
+            ViewBag.NewBandMembers = newBand.ActualArtists == null ? -1 : newBand.ActualArtists.Capacity;
 
             ViewBag.NewSongImg = "http://scontent.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/12784053_1578386632482075_5357907_n.jpg?ig_cache_key=MTIwMTE2MzU0MDgyNjM5MjgyMw%3D%3D.2";
             ViewBag.NewSongArtist = "4minute";
