@@ -33,7 +33,8 @@
         </td>
         <td>
             <a href="http://asp.net" class="btn btn-primary btn-lg">Zobacz &raquo;</a> <br/><br/>
-            @Html.ActionLink("Edytuj", "Edit", new { id = item.ID })
+            @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }) <br/>
+            @Html.ActionLink("Usuń", "Delete", new { id = item.ID })
         </td>
     </tr>
 }
