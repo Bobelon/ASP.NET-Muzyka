@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ProjektASP.Models.Band>
+
+@{
+    ViewBag.Title = "Zespoły";
+}
+
+<h2>Zespoły</h2>
+
+<p>
+    @Html.ActionLink("Dodaj zespół", "Create")
+
+</p>
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.Image)" alt="" style="border-radius: 6px; height: 10em;" />
+            </td>
+            <td>
+                <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+            </td>
+            <td>
+                <h3>
+                    Debiut: @Html.DisplayFor(modelItem => item.Debiut)<br />
+
+                    @if (!Html.DisplayFor(modelItem => item.End).ToString().Equals("0"))
+                    {
+                        @:Koniec kariery: @Html.DisplayFor(modelItem => item.End)
+            }
+                </h3>
+            </td>
+            <td>
+                @Html.ActionLink("Zobacz »", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-lg" }) <br /><br />
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }) <br />
+                @Html.ActionLink("Usuń", "Delete", new { id = item.ID })
+
+            </td>
+        </tr>
+    }
+
+</table>

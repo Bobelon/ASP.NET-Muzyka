@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Strona główna";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>@ViewBag.NewBandName</h2>
+            <p class="lead">
+                Debiut: @ViewBag.NewBandDebiut <br />
+                @if (ViewBag.NewBandEnd != 0)
+                {
+                    @:Koniec kariery: @ViewBag.NewBandEnd
+                }
+                @if (ViewBag.NewBandMembers != -1)
+                {
+                    @:<br />Liczebność grupy: @ViewBag.NewBandMembers
+                }
+            </p>
+            <p>
+                <a href="http://asp.net" class="btn btn-primary btn-lg">
+                    Sprawdź &raquo;
+                </a>
+            </p>
+        </div>
+        <img src=@ViewBag.NewBandImg alt="Zdjęcie @ViewBag.NewBandName" style="border-radius: 6px; max-width: 40%;"/>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>@ViewBag.NewSongArtist - @ViewBag.NewSongName</h2>
+            <p class="lead">
+                @ViewBag.NewSongDate - nowa piosenka @ViewBag.NewSongArtist
+            </p>
+            <p>
+                <a href="http://asp.net" class="btn btn-primary btn-lg">
+                    Sprawdź &raquo;
+                </a>
+            </p>
+        </div>
+        <img src=@ViewBag.NewSongImg alt="Obrazek" style="border-radius: 6px; max-width: 40%;"/>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>@ViewBag.NewArtistHeader</h2>
+            <p class="lead">
+                @ViewBag.NewArtistType <br />
+                Prawdziwe imie: @ViewBag.NewArtistName <br />
+                Data ur.: @ViewBag.NewArtistDate (@ViewBag.NewArtistAge lat)<br />
+            </p>
+            <p>
+                <a href="http://asp.net" class="btn btn-primary btn-lg">
+                    Sprawdź &raquo;
+                </a>
+            </p>
+        </div>
+        <img src=@ViewBag.NewArtistImg alt="Obrazek" style="border-radius: 6px; max-width: 40%;"/>
+    </div>
+</div>

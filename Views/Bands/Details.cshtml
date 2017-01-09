@@ -1,0 +1,89 @@
+﻿@model ProjektASP.Models.Band
+
+@{
+    ViewBag.Title = @Html.DisplayFor(model => model.Name);
+}
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+<div>
+    <hr />
+    <table style="border: solid 1px black; width: 100%;">
+        <tr>
+            <td>
+                <img src=@Html.DisplayFor(model => model.Image) alt="Zdjęcie @Html.DisplayFor(model => model.Name)" style="width: 100%;" />
+            </td>
+            <td style="padding-left: 10%; width: 40%;">
+                <h1>@Html.DisplayFor(model => model.Name)</h1><br />
+                <h4>
+                    @Html.DisplayNameFor(model => model.Debiut): @Html.DisplayFor(model => model.Debiut)
+                    <br />
+                    @if (Html.DisplayFor(model => model.End).ToString() != "0")
+                    {
+                        @Html.DisplayNameFor(model => model.End)@: : @Html.DisplayFor(model => model.End)
+                    }
+                    <br/>@Html.ActionLink("Edytuj", "Edit", new { id = Model.ID })
+                </h4>
+
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+<hr />
+@{
+    if (Html.DisplayFor(model => model.Members.Capacity).ToString() != "")
+    {
+        <h2>@Html.DisplayFor(model => model.Members.Capacity).ToString()</h2><br />
+
+        <table>
+            <tr>
+                <td class="col-md-3">
+                    <img src="https://www.dramafever.com/st/news/images/2b145e4b-0a7d-4e56-91b8-49ca17532128.jpg" alt="CL" style="max-width: 100%; max-height: 15em;" /> <br />
+
+                </td>
+                <td class="col-md-3">
+                    <img src="http://vignette2.wikia.nocookie.net/2ne1/images/c/cf/Dara-aa25-dara-2ne1-31773533-1346-1771.jpg/revision/latest?cb=20140107140215" alt="CL" style="max-width: 100%; max-height: 15em;" /> <br />
+
+                </td>
+                <td class="col-md-3">
+                    <img src="http://4.bp.blogspot.com/-UmImqYBwrJo/Vqk7KQWgx1I/AAAAAAAAGHY/xvi_qjoi4jc/s1600/park_bom__2ne1__png__render__by_sellscarol-d5mz8tg.png" alt="CL" style="width: 100%;" /> <br />
+
+                </td>
+                <td class="col-md-3">
+                    <img src="http://2.bp.blogspot.com/-gthAnh6TcP0/T2yfg9j-_xI/AAAAAAAAAJ8/14fJGAeYg_A/s1600/2ne1-Minzy.png" alt="CL" style="width: 100%;" /> <br />
+
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-3">
+                    <h3 style="margin:auto;">CL</h3>
+                </td>
+                <td class="col-md-3">
+                    <h3 style="margin:auto;">Dara</h3>
+                </td>
+                <td class="col-md-3">
+                    <h3 style="margin:auto;">Park Bom</h3>
+                </td>
+                <td class="col-md-3">
+                    <h3 style="margin:auto;">Minzy</h3>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-3">
+                    <img src="https://www.dramafever.com/st/news/images/2b145e4b-0a7d-4e56-91b8-49ca17532128.jpg" alt="CL" style="width: 100%;" /> <br />
+                    <h3 style="margin:auto;">CL</h3>
+                </td>
+                <td class="col-md-3">
+                    <img src="https://www.dramafever.com/st/news/images/2b145e4b-0a7d-4e56-91b8-49ca17532128.jpg" alt="CL" style="width: 100%;" /> <br />
+                    <h3 style="margin:auto;">CL</h3>
+                </td>
+            </tr>
+        </table>
+    }
+}
+
+<p>
+   
+</p>
